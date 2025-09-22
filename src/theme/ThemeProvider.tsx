@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { colorScheme, useColorScheme } from "nativewind";
-import React, { Children, createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
 
 export type ThemeOption = "light" | "dark" | "system";

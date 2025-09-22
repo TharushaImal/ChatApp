@@ -1,10 +1,10 @@
-import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Image, StatusBar, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import "../../global.css"
 import CircleShape from "../components/CircleShape";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-// import { runOnJS } from "react-native-worklets";
+import { runOnJS } from "react-native-worklets";
 import { useNavigation } from "@react-navigation/native";
 import { RootStack } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -95,28 +95,3 @@ export default function SplashScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  bottomContainer: {
-    position: "absolute",
-    bottom: 20,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  appVersion: {
-    fontSize: 10,
-    fontWeight: "bold",
-    color: "#475569",
-  },
-  companyName: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#475569",
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
