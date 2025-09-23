@@ -13,8 +13,15 @@ import { AlertNotificationRoot } from "react-native-alert-notification";
 import { useTheme } from "../theme/ThemeProvider";
 import { FloatingLabelInput } from "react-native-floating-label-input";
 import { useState } from "react";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStack } from "../../App";
+import { useNavigation } from "@react-navigation/native";
+
+type SignUpProps = NativeStackNavigationProp<RootStack, "SignUpScreen">
 
 export default function SignUpScreen() {
+  const navigation = useNavigation<SignUpProps>();
+
   const [firstName, setFirstName] = useState("");
   const { applied } = useTheme();
   const logo =
@@ -25,7 +32,7 @@ export default function SignUpScreen() {
   return (
     <AlertNotificationRoot>
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        behavior={Platform.OS === "android" ? "padding" : "height"}
         className="flex-1 items-center dark:bg-slate-950"
       >
         <SafeAreaView className="justify-center items-center p-5">
@@ -49,8 +56,10 @@ export default function SignUpScreen() {
             </View>
           </View>
         </SafeAreaView>
-        <View className="absolute bottom-5 w-full p-5">
-          <Pressable className="bg-green-600 h-14 justify-center items-center rounded-full">
+        <View className="mt-1 w-full px-5">
+          <Pressable className="bg-green-600 h-14 justify-center items-center rounded-full"
+            onPress={() => navigation.replace("ContactScreen")}
+          >
             <Text className="text-slate-100 dark:text-slate-100 font-bold text-2xl">
               Next
             </Text>
